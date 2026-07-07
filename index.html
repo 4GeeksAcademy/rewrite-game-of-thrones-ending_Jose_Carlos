@@ -1,27 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rewrite the Ending</title>
+</head>
 <body>
-  <header></header>
-
-  <main>
-
-    <section id="hero">
-      <h1>Rewrite the ending</h1>
-      <p>Build the experience from this starter and shape your own version of the story.</p>
-      <button id="start-btn" type="button">Start the journey</button>
+  <main class="page-shell">
+    <section class="hero" id="hero" data-hero-image="/hero-background.jpg">
+      <div class="hero__backdrop"></div>
+      <div class="hero__content">
+        <p class="hero__eyebrow">A cinematic web development challenge</p>
+        <h1>Rewrite the Ending</h1>
+        <h2>Can you create a finale worthy of the Iron Throne?</h2>
+        <p class="hero__description">
+          Every decision you make will shape a brand new ending. Answer the questions,
+          rewrite history and discover your own version of the final chapter.
+        </p>
+        <button class="hero__cta" id="start-btn" type="button">Start Your Journey</button>
+      </div>
     </section>
 
-    <section id="questionnaire">
-      <h2>Questionnaire</h2>
-      <p>Replace this placeholder with your questions and choices.</p>
+    <div class="section-divider" aria-hidden="true">
+      <span class="section-divider__diamond"></span>
+    </div>
+
+    <section class="content-section" id="questionnaire" aria-labelledby="choices-title">
+      <div class="section-heading">
+        <p class="section-heading__kicker">Chapter I</p>
+        <h2 id="choices-title">Your Choices</h2>
+        <p>Complete the questionnaire to begin creating your own ending.</p>
+      </div>
+      <div class="placeholder-card placeholder-card--form" aria-hidden="true"></div>
     </section>
 
-    <section id="result">
-      <h2>Your ending</h2>
-      <p>Show the chosen ending here once the flow is implemented.</p>
-    </section>
+    <div class="section-divider" aria-hidden="true">
+      <span class="section-divider__diamond"></span>
+    </div>
 
+    <section class="content-section" id="result" aria-labelledby="ending-title">
+      <div class="section-heading">
+        <p class="section-heading__kicker">Chapter II</p>
+        <h2 id="ending-title">Alternative Ending</h2>
+        <p>Your generated ending will appear here.</p>
+      </div>
+      <div class="placeholder-card placeholder-card--result" aria-hidden="true"></div>
+    </section>
   </main>
 
-  <footer></footer>
+  <footer class="site-footer">
+    <p>Built with HTML • CSS • JavaScript</p>
+  </footer>
 
   <script type="module" src="/src/main.js"></script>
 </body>
+</html>
