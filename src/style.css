@@ -399,6 +399,465 @@ select {
   letter-spacing: 0.02em;
 }
 
+.ending-card__scene {
+  margin: 0 0 18px;
+  font-size: 0.88rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(64, 41, 15, 0.78);
+}
+
+.ending-card__victory {
+  margin: 0 0 10px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: rgba(82, 49, 16, 0.84);
+}
+
+.ending-visual {
+  --visual-sky-top: #28344a;
+  --visual-sky-bottom: #101722;
+  --visual-glow: rgba(225, 197, 127, 0.9);
+  --visual-glow-soft: rgba(225, 197, 127, 0.26);
+  --visual-ground: #1d2330;
+  --visual-fortress: #0e1219;
+  --visual-fortress-highlight: rgba(255, 238, 187, 0.18);
+  --visual-mist: rgba(255, 255, 255, 0.14);
+  --visual-particles: rgba(255, 215, 151, 0.6);
+  position: relative;
+  height: 220px;
+  margin: 0 0 20px;
+  overflow: hidden;
+  border: 1px solid rgba(93, 63, 25, 0.28);
+  border-radius: 18px;
+  background: linear-gradient(180deg, var(--visual-sky-top) 0%, var(--visual-sky-bottom) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 248, 228, 0.08), 0 16px 28px rgba(52, 28, 7, 0.18);
+}
+
+.ending-visual__sky,
+.ending-visual__orb,
+.ending-visual__fortress,
+.ending-visual__mist,
+.ending-visual__embers,
+.ending-visual__confetti,
+.ending-visual__crest-wrap,
+.ending-visual__sigil {
+  position: absolute;
+}
+
+.ending-visual__sky {
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 18%, var(--visual-glow-soft) 0, transparent 22%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 44%),
+    linear-gradient(180deg, var(--visual-sky-top), var(--visual-sky-bottom));
+}
+
+.ending-visual__orb {
+  top: 24px;
+  right: 52px;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff9dc 0%, var(--visual-glow) 38%, rgba(255, 255, 255, 0) 74%);
+  box-shadow: 0 0 40px var(--visual-glow-soft);
+  animation: ending-pulse 4s ease-in-out infinite;
+}
+
+.ending-visual__fortress {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 58%;
+  background:
+    linear-gradient(180deg, transparent 0 40%, var(--visual-fortress-highlight) 40% 42%, transparent 42% 100%),
+    linear-gradient(180deg, transparent 0 62%, var(--visual-fortress) 62% 100%);
+  clip-path: polygon(
+    0% 100%, 0% 78%, 8% 78%, 8% 56%, 14% 56%, 14% 72%, 24% 72%, 24% 48%, 32% 48%, 32% 68%,
+    43% 68%, 43% 36%, 51% 36%, 51% 60%, 59% 60%, 59% 52%, 66% 52%, 66% 70%, 76% 70%, 76% 44%,
+    84% 44%, 84% 76%, 92% 76%, 92% 64%, 100% 64%, 100% 100%
+  );
+}
+
+.ending-visual__mist {
+  inset: auto -20% 8px -20%;
+  height: 42%;
+  background:
+    radial-gradient(circle at 20% 50%, var(--visual-mist) 0, transparent 24%),
+    radial-gradient(circle at 50% 60%, rgba(255, 255, 255, 0.16) 0, transparent 22%),
+    radial-gradient(circle at 80% 45%, rgba(255, 255, 255, 0.13) 0, transparent 20%);
+  filter: blur(8px);
+  animation: ending-drift 10s linear infinite alternate;
+}
+
+.ending-visual__embers {
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 16% 72%, var(--visual-particles) 0 1px, transparent 2px),
+    radial-gradient(circle at 28% 34%, var(--visual-particles) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 45% 66%, var(--visual-particles) 0 1px, transparent 2px),
+    radial-gradient(circle at 62% 24%, var(--visual-particles) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 78% 74%, var(--visual-particles) 0 1px, transparent 2px),
+    radial-gradient(circle at 90% 42%, var(--visual-particles) 0 1.5px, transparent 2.5px);
+  opacity: 0.7;
+  animation: ending-flicker 3.4s ease-in-out infinite;
+}
+
+.ending-visual__confetti {
+  top: -10%;
+  width: 28%;
+  height: 88%;
+  opacity: 0.78;
+  background-image:
+    radial-gradient(circle at 20% 14%, rgba(255, 233, 168, 0.95) 0 4px, transparent 5px),
+    radial-gradient(circle at 52% 26%, rgba(255, 255, 255, 0.72) 0 3px, transparent 4px),
+    radial-gradient(circle at 78% 12%, rgba(255, 195, 124, 0.88) 0 4px, transparent 5px),
+    linear-gradient(180deg, rgba(255, 221, 152, 0.92) 0 18px, transparent 18px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0 14px, transparent 14px),
+    linear-gradient(180deg, rgba(255, 193, 104, 0.9) 0 16px, transparent 16px);
+  background-size: 18px 72px, 22px 64px, 18px 76px, 8px 72px, 6px 64px, 7px 68px;
+  background-position: 0 0, 36px 10px, 74px 0, 16px 0, 58px 8px, 96px 2px;
+  background-repeat: repeat-y;
+}
+
+.ending-visual__confetti--left {
+  left: 0;
+  animation: sigil-stream-left 5.2s linear infinite;
+}
+
+.ending-visual__confetti--right {
+  right: 0;
+  transform: scaleX(-1);
+  animation: sigil-stream-right 4.8s linear infinite;
+}
+
+.ending-visual__crest-wrap {
+  left: 50%;
+  top: 52%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
+
+.ending-visual__crest {
+  position: relative;
+  width: 132px;
+  height: 150px;
+  filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.35));
+  animation: crest-celebrate 2.8s ease-in-out infinite;
+}
+
+.ending-crest__svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.ending-crest__shield {
+  fill: rgba(38, 21, 12, 0.9);
+  stroke: rgba(255, 228, 164, 0.95);
+  stroke-width: 5;
+}
+
+.ending-crest__trim {
+  fill: rgba(119, 52, 18, 0.4);
+  stroke: rgba(255, 239, 203, 0.42);
+  stroke-width: 2;
+}
+
+.ending-crest__icon,
+.ending-crest__mane,
+.ending-crest__rays,
+.ending-crest__crown,
+.ending-crest__book,
+.ending-crest__gem,
+.ending-crest__flame {
+  fill: rgba(248, 214, 137, 0.98);
+}
+
+.ending-crest__cut {
+  fill: rgba(56, 29, 12, 0.8);
+  stroke: rgba(56, 29, 12, 0.8);
+  stroke-width: 4;
+}
+
+.ending-visual__crest::before,
+.ending-visual__crest::after {
+  content: '';
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 232, 169, 0.18);
+  animation: crest-halo 2.8s ease-in-out infinite;
+}
+
+.ending-visual__crest::after {
+  inset: -28px;
+  animation-delay: 0.45s;
+}
+
+.ending-visual__sigil {
+  left: 50%;
+  bottom: 16px;
+  z-index: 2;
+  padding: 9px 16px;
+  border: 1px solid rgba(255, 244, 207, 0.24);
+  border-radius: 999px;
+  background: rgba(7, 10, 14, 0.38);
+  color: rgba(255, 245, 214, 0.92);
+  font-family: Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+  transform: translateX(-50%);
+}
+
+.ending-visual--throne {
+  --visual-sky-top: #5f2918;
+  --visual-sky-bottom: #1f0f12;
+  --visual-glow: rgba(255, 177, 78, 0.96);
+  --visual-glow-soft: rgba(255, 177, 78, 0.3);
+  --visual-ground: #28120f;
+  --visual-fortress: #110809;
+  --visual-fortress-highlight: rgba(255, 195, 122, 0.2);
+  --visual-mist: rgba(255, 185, 110, 0.16);
+  --visual-particles: rgba(255, 176, 84, 0.76);
+}
+
+.ending-visual--north {
+  --visual-sky-top: #5c718d;
+  --visual-sky-bottom: #142132;
+  --visual-glow: rgba(223, 239, 255, 0.95);
+  --visual-glow-soft: rgba(178, 210, 246, 0.28);
+  --visual-fortress: #182230;
+  --visual-fortress-highlight: rgba(219, 234, 255, 0.14);
+  --visual-mist: rgba(219, 235, 255, 0.2);
+  --visual-particles: rgba(234, 244, 255, 0.85);
+}
+
+.ending-visual--dawn {
+  --visual-sky-top: #bb6b47;
+  --visual-sky-bottom: #2f2037;
+  --visual-glow: rgba(255, 210, 122, 0.98);
+  --visual-glow-soft: rgba(255, 192, 110, 0.24);
+  --visual-fortress: #261728;
+  --visual-fortress-highlight: rgba(255, 211, 150, 0.16);
+  --visual-mist: rgba(255, 213, 156, 0.16);
+  --visual-particles: rgba(255, 223, 168, 0.74);
+}
+
+.ending-visual--dragonfall {
+  --visual-sky-top: #481717;
+  --visual-sky-bottom: #120909;
+  --visual-glow: rgba(255, 102, 76, 0.96);
+  --visual-glow-soft: rgba(255, 102, 76, 0.22);
+  --visual-fortress: #110607;
+  --visual-fortress-highlight: rgba(255, 135, 104, 0.14);
+  --visual-mist: rgba(255, 114, 76, 0.15);
+  --visual-particles: rgba(255, 127, 74, 0.88);
+}
+
+.ending-visual--council {
+  --visual-sky-top: #53463c;
+  --visual-sky-bottom: #17120f;
+  --visual-glow: rgba(242, 205, 140, 0.92);
+  --visual-glow-soft: rgba(242, 205, 140, 0.22);
+  --visual-fortress: #14100d;
+  --visual-fortress-highlight: rgba(255, 224, 169, 0.14);
+  --visual-mist: rgba(240, 220, 184, 0.12);
+  --visual-particles: rgba(255, 209, 138, 0.64);
+}
+
+.ending-visual--beyond {
+  --visual-sky-top: #29506a;
+  --visual-sky-bottom: #08111d;
+  --visual-glow: rgba(146, 210, 255, 0.92);
+  --visual-glow-soft: rgba(146, 210, 255, 0.26);
+  --visual-fortress: #071018;
+  --visual-fortress-highlight: rgba(204, 237, 255, 0.12);
+  --visual-mist: rgba(186, 226, 255, 0.18);
+  --visual-particles: rgba(207, 237, 255, 0.8);
+}
+
+.ending-visual--wolfqueen {
+  --visual-sky-top: #40627a;
+  --visual-sky-bottom: #140f24;
+  --visual-glow: rgba(196, 226, 255, 0.94);
+  --visual-glow-soft: rgba(177, 214, 249, 0.24);
+  --visual-fortress: #130d1c;
+  --visual-fortress-highlight: rgba(235, 244, 255, 0.14);
+  --visual-mist: rgba(220, 230, 248, 0.16);
+  --visual-particles: rgba(228, 237, 255, 0.76);
+}
+
+.ending-visual--lion {
+  --visual-sky-top: #7f5023;
+  --visual-sky-bottom: #24120c;
+  --visual-glow: rgba(255, 210, 104, 0.95);
+  --visual-glow-soft: rgba(255, 198, 95, 0.24);
+  --visual-fortress: #1b0c08;
+  --visual-fortress-highlight: rgba(255, 216, 147, 0.16);
+  --visual-mist: rgba(255, 214, 150, 0.15);
+  --visual-particles: rgba(255, 214, 121, 0.78);
+}
+
+.ending-visual--faceless {
+  --visual-sky-top: #3d3d46;
+  --visual-sky-bottom: #111116;
+  --visual-glow: rgba(209, 214, 229, 0.9);
+  --visual-glow-soft: rgba(209, 214, 229, 0.18);
+  --visual-fortress: #0f1015;
+  --visual-fortress-highlight: rgba(223, 228, 242, 0.1);
+  --visual-mist: rgba(217, 220, 230, 0.15);
+  --visual-particles: rgba(214, 216, 228, 0.58);
+}
+
+.ending-visual--maester {
+  --visual-sky-top: #72563d;
+  --visual-sky-bottom: #211710;
+  --visual-glow: rgba(255, 224, 163, 0.92);
+  --visual-glow-soft: rgba(255, 224, 163, 0.2);
+  --visual-fortress: #17100d;
+  --visual-fortress-highlight: rgba(255, 226, 179, 0.12);
+  --visual-mist: rgba(238, 220, 191, 0.12);
+  --visual-particles: rgba(255, 220, 156, 0.56);
+}
+
+.ending-visual--north .ending-visual__embers,
+.ending-visual--beyond .ending-visual__embers,
+.ending-visual--wolfqueen .ending-visual__embers {
+  animation-duration: 5.2s;
+}
+
+.ending-visual--dragonfall .ending-visual__orb,
+.ending-visual--throne .ending-visual__orb,
+.ending-visual--lion .ending-visual__orb {
+  animation-duration: 2.8s;
+}
+
+.ending-visual--north .ending-crest__shield,
+.ending-visual--wolfqueen .ending-crest__shield,
+.ending-visual--beyond .ending-crest__shield {
+  fill: rgba(16, 28, 42, 0.92);
+}
+
+.ending-visual--north .ending-crest__icon,
+.ending-visual--wolfqueen .ending-crest__icon,
+.ending-visual--beyond .ending-crest__icon,
+.ending-visual--north .ending-crest__crown,
+.ending-visual--wolfqueen .ending-crest__crown {
+  fill: rgba(224, 239, 255, 0.96);
+}
+
+.ending-visual--lion .ending-crest__icon,
+.ending-visual--lion .ending-crest__mane,
+.ending-visual--throne .ending-crest__icon,
+.ending-visual--throne .ending-crest__gem,
+.ending-visual--council .ending-crest__icon,
+.ending-visual--dawn .ending-crest__icon,
+.ending-visual--dawn .ending-crest__rays,
+.ending-visual--maester .ending-crest__book,
+.ending-visual--maester .ending-crest__gem {
+  fill: rgba(250, 208, 110, 0.98);
+}
+
+.ending-visual--dragonfall .ending-crest__icon,
+.ending-visual--dragonfall .ending-crest__flame {
+  fill: rgba(255, 128, 84, 0.98);
+}
+
+.ending-visual--faceless .ending-crest__icon {
+  fill: rgba(220, 224, 236, 0.92);
+}
+
+.ending-visual--faceless .ending-crest__cut,
+.ending-visual--maester .ending-crest__cut,
+.ending-visual--council .ending-crest__cut {
+  stroke-width: 3;
+}
+
+@keyframes ending-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.88;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes ending-drift {
+  0% {
+    transform: translateX(-2%) translateY(0);
+  }
+  100% {
+    transform: translateX(2%) translateY(-6px);
+  }
+}
+
+@keyframes ending-flicker {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.88;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes crest-celebrate {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    transform: translateY(-8px) scale(1.04) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-14px) scale(1.07) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-6px) scale(1.03) rotate(2deg);
+  }
+}
+
+@keyframes crest-halo {
+  0%,
+  100% {
+    transform: scale(0.96);
+    opacity: 0.28;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.7;
+  }
+}
+
+@keyframes sigil-stream-left {
+  0% {
+    transform: translateY(-8%) rotate(-6deg);
+  }
+  100% {
+    transform: translateY(14%) rotate(4deg);
+  }
+}
+
+@keyframes sigil-stream-right {
+  0% {
+    transform: scaleX(-1) translateY(-10%) rotate(-5deg);
+  }
+  100% {
+    transform: scaleX(-1) translateY(16%) rotate(5deg);
+  }
+}
+
 .ending-card__meta strong {
   color: #2c1b08;
 }
